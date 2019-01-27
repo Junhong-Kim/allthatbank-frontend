@@ -1,17 +1,17 @@
 <template>
-  <v-layout fill-height row>
-    <v-sheet class="d-flex" color="white" width="300px" :elevation="6">
+  <v-layout fill-height row mt-3>
+    <v-sheet color="transparent">
       <v-layout column>
         <v-flex ma-3 pa-2>
           <span>은행</span>
-          <v-layout text-xs-center mt-2>
+          <v-layout text-xs-center mt-1>
             <v-flex>
               <v-combobox
                 v-model="selectedBanks"
                 :items="banks"
                 label="은행을 선택해주세요."
                 solo
-                small-chips
+                chips
                 clearable
                 multiple
                 hide-details
@@ -19,11 +19,34 @@
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-divider></v-divider>
+        <v-flex pa-2>
+          <v-form>
+            <v-container>
+              <v-layout row>
+                <v-flex>
+                  <span>기본금리</span>
+                  <v-layout text-xs-center mt-1>
+                    <v-flex>
+                      <v-text-field label="0.0" solo hide-details suffix="%"></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-flex>
+                <v-flex>
+                  <span>우대금리</span>
+                  <v-layout text-xs-center mt-1>
+                    <v-flex>
+                      <v-text-field label="0.0" solo hide-details suffix="%"></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-form>
+        </v-flex>
         <v-flex ma-3 pa-2>
           <v-layout column>
             <span>가입기간</span>
-            <v-layout text-xs-center mt-2>
+            <v-layout text-xs-center mt-1>
               <v-flex>
                 <v-btn outline round>6개월</v-btn>
                 <v-btn outline round>12개월</v-btn>
@@ -37,50 +60,32 @@
             </v-layout>
           </v-layout>
         </v-flex>
-        <v-divider></v-divider>
         <v-flex ma-3 pa-2>
           <span>적립유형</span>
-          <v-layout text-xs-center mt-2>
+          <v-layout text-xs-center mt-1>
             <v-flex>
               <v-btn outline round>정액적립식</v-btn>
               <v-btn ripple round color="accent">자유적립식</v-btn>
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-divider></v-divider>
         <v-flex ma-3 pa-2>
-          <span>저축금리</span>
-          <v-layout text-xs-center mt-2>
+          <span>금리유형</span>
+          <v-layout text-xs-center mt-1>
             <v-flex>
               <v-btn ripple round color="accent">단리</v-btn>
               <v-btn outline round>복리</v-btn>
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-divider></v-divider>
-        <v-flex pa-2>
-          <v-form>
-            <v-container>
-              <v-layout row>
-                <v-flex>
-                  <span>기본금리</span>
-                  <v-layout text-xs-center mt-2>
-                    <v-flex>
-                      <v-text-field label="0.0" solo hide-details suffix="%"></v-text-field>
-                    </v-flex>
-                  </v-layout>
-                </v-flex>
-                <v-flex>
-                  <span>우대금리</span>
-                  <v-layout text-xs-center mt-2>
-                    <v-flex>
-                      <v-text-field label="0.0" solo hide-details suffix="%"></v-text-field>
-                    </v-flex>
-                  </v-layout>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-form>
+        <v-flex ma-3 pa-2>
+          <span>가입제한</span>
+          <v-layout text-xs-center mt-1>
+            <v-flex>
+              <v-btn ripple round color="accent">제한없음</v-btn>
+              <v-btn outline round>서민전용</v-btn>
+            </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-sheet>
