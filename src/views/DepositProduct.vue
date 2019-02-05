@@ -1,7 +1,7 @@
 <template>
   <v-layout row ml-4 mr-4>
     <v-flex md3 lg3 xl3>
-      <saving-product-option v-if="this.$vuetify.breakpoint.width > 960"></saving-product-option>
+      <deposit-product-option v-if="this.$vuetify.breakpoint.width > 960"></deposit-product-option>
     </v-flex>
     <v-flex xs12>
       <v-container>
@@ -39,7 +39,7 @@
             </div>
           </v-layout>
           <v-flex v-for="(value, index) in 10" :key="index">
-            <saving-product-card></saving-product-card>
+            <deposit-product-card></deposit-product-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -48,13 +48,13 @@
 </template>
 
 <script>
-import SavingProductOption from '@/components/SavingProduct/SavingProductOption'
-import SavingProductCard from '@/components/SavingProduct/SavingProductCard'
+import DepositProductOption from '@/components/DepositProduct/DepositProductOption'
+import DepositProductCard from '@/components/DepositProduct/DepositProductCard'
 
 export default {
   components: {
-    SavingProductOption,
-    SavingProductCard
+    DepositProductOption,
+    DepositProductCard
   }
 }
 </script>
