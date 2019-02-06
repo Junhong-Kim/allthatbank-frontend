@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SavingProduct from './views/SavingProduct.vue'
 
 Vue.use(Router)
 
@@ -10,13 +9,18 @@ export default new Router({
       path: '/',
       name: 'main',
       redirect: {
-        name: 'saving'
+        name: 'search'
       }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/SearchProduct.vue')
     },
     {
       path: '/saving',
       name: 'saving',
-      component: SavingProduct
+      component: () => import('./views/SavingProduct.vue')
     },
     {
       path: '/deposit',

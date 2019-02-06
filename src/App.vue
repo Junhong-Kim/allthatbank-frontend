@@ -4,9 +4,9 @@
       <v-toolbar-title>올댓뱅크 BETA</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat @click="changeRoute('search')">상품검색</v-btn>
         <v-btn flat @click="changeRoute('saving')">적금상품</v-btn>
         <v-btn flat @click="changeRoute('deposit')">예금상품</v-btn>
-        <v-btn flat>검색</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
