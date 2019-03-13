@@ -14,25 +14,65 @@
           hide-details
           prepend-inner-icon="search"
           label="금융상품명을 입력해주세요."
-          @keyup.enter="search"
-          style="margin-bottom: 20px;"
+          v-model="productName"
+          @keypress.enter="search"
         ></v-text-field>
-        <v-btn color="primary">검색</v-btn>
+        <v-btn class="mt-4 primary" @click="search">검색</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import API from '@/api'
+
 export default {
   data () {
     return {
-      product: 'saving'
+      product: 'saving',
+      productName: '',
+      productList: []
     }
   },
   methods: {
     search () {
-      console.log('search')
+      if (this.product === 'saving') {
+        // 적금상품 검색
+        this.$http.get(API.SEARCH_SAVING_PRODUCT_BY_NAME, {
+          params: {
+            fin_prdt_nm: this.productName
+          }
+        }).then(res => {
+          const data = res.data.data
+          this.productList = data
+          this.$router.push({
+            name: 'searchResult',
+            params: {
+              type: this.product,
+              data: this.productList
+            }
+          })
+          this.productName = ''
+        })
+      } else if (this.product === 'deposit') {
+        // 예금상품 검색
+        this.$http.get(API.SEARCH_DEPOSIT_PRODUCT_BY_NAME, {
+          params: {
+            fin_prdt_nm: this.productName
+          }
+        }).then(res => {
+          const data = res.data.data
+          this.productList = data
+          this.$router.push({
+            name: 'searchResult',
+            params: {
+              type: this.product,
+              data: this.productList
+            }
+          })
+          this.productName = ''
+        })
+      }
     }
   }
 }

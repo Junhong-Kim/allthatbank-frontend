@@ -7,7 +7,7 @@
       <v-container>
         <v-layout column>
           <v-layout row text-xs-center mr-2>
-            <span class="subheading" style="padding: 15px;">검색결과 <span class="blue--text"><b>0</b></span>개</span>
+            <span class="subheading pt-3 pb-3">검색결과 <span class="blue--text"><b>0</b></span>개</span>
             <v-spacer></v-spacer>
             <v-btn color="primary" v-if="this.$vuetify.breakpoint.width < 960">
               상품옵션

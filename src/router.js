@@ -18,6 +18,11 @@ export default new Router({
       component: () => import('./views/SearchProduct.vue')
     },
     {
+      path: '/searchResult',
+      name: 'searchResult',
+      component: () => import('./views/SearchProductResult.vue')
+    },
+    {
       path: '/saving',
       name: 'saving',
       component: () => import('./views/SavingProduct.vue')
