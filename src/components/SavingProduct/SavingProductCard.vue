@@ -24,9 +24,9 @@
             <v-flex>
               <v-layout row mt-2>
                 <span class="mr-1"><b>우대금리</b></span>
-                <span>{{ product.basic_rate_min }}%</span>
+                <span>{{ product.prime_rate_min }}%</span>
                 <span>&nbsp;~&nbsp;</span>
-                <span>{{ product.basic_rate_max }}%</span>
+                <span>{{ product.prime_rate_max }}%</span>
               </v-layout>
             </v-flex>
           </v-layout>
