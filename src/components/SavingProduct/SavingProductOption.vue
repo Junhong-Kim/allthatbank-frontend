@@ -1,5 +1,5 @@
 <template>
-  <v-layout fill-height row mt-4>
+  <v-layout fill-height row mt-5>
     <v-sheet color="transparent">
       <v-layout column>
         <!-- 은행 -->
@@ -96,7 +96,11 @@
           <v-layout column>
             <span class="caption">가입기간</span>
             <v-layout mt-1>
-              <v-btn-toggle v-model="toggleMonths" @change="search" :max="2000">
+              <v-btn-toggle
+                v-model="toggleMonths"
+                @change="search"
+                mandatory
+              >
                 <v-btn flat>6개월</v-btn>
                 <v-btn flat>12개월</v-btn>
                 <v-btn flat>24개월</v-btn>
@@ -109,7 +113,11 @@
         <v-flex mb-4 pa-2>
           <span class="caption">적립유형</span>
           <v-layout mt-1>
-            <v-btn-toggle v-model="toggleRsrvType" @change="search">
+            <v-btn-toggle
+              v-model="toggleRsrvType"
+              @change="search"
+              mandatory
+            >
               <v-btn flat>정액적립식</v-btn>
               <v-btn flat>자유적립식</v-btn>
             </v-btn-toggle>
@@ -119,7 +127,11 @@
         <v-flex mb-4 pa-2>
           <span class="caption">금리유형</span>
           <v-layout mt-1>
-            <v-btn-toggle v-model="toggleRateType" @change="search">
+            <v-btn-toggle
+              v-model="toggleRateType"
+              @change="search"
+              mandatory
+            >
               <v-btn flat>단리</v-btn>
               <v-btn flat>복리</v-btn>
             </v-btn-toggle>
@@ -129,7 +141,11 @@
         <v-flex mb-4 pa-2>
           <span class="caption">가입제한</span>
           <v-layout mt-1>
-            <v-btn-toggle v-model="toggleJoinType" @change="search">
+            <v-btn-toggle
+              v-model="toggleJoinType"
+              @change="search"
+              mandatory
+            >
               <v-btn flat>제한없음</v-btn>
               <v-btn flat>서민전용</v-btn>
               <v-btn flat>일부제한</v-btn>

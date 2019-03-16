@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { sortByKey } from '@/utils'
+
 export default {
   props: {
     productList: Array
@@ -39,28 +41,11 @@ export default {
   methods: {
     basicRate () {
       const key = 'basic_rate_max'
-      this.sortByKey(key)
+      this.sortByKey(this.productList, key)
     },
     primeRate () {
       const key = 'prime_rate_max'
-      this.sortByKey(key)
-    },
-    sortByKey (key) {
-      this.productList.sort(function (a, b) {
-        let keyA = a[key]
-        let keyB = b[key]
-
-        // keyA가 keyB보다 작을 때
-        if (keyA < keyB) {
-          return -1
-        }
-        // keyA가 keyB보다 클 때
-        if (keyA > keyB) {
-          return 1
-        }
-        // keyA와 keyB가 동일할 때
-        return 0
-      }).reverse()
+      this.sortByKey(this.productList, key)
     }
   }
 }

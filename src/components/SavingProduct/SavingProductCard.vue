@@ -49,9 +49,9 @@
             <v-flex>
               <v-layout row>
                 <span class="mt-2"><b>적립유형</b></span>
-                <v-btn v-if="product.rate_type_s" depressed round small color="primary">정액적립식</v-btn>
+                <v-btn v-if="product.rsrv_type_s" depressed round small color="primary">정액적립식</v-btn>
                 <v-btn v-else outline round small>정액적립식</v-btn>
-                <v-btn v-if="product.rate_type_m" depressed round small color="primary">자유적립식</v-btn>
+                <v-btn v-if="product.rsrv_type_f" depressed round small color="primary">자유적립식</v-btn>
                 <v-btn v-else outline round small>자유적립식</v-btn>
               </v-layout>
             </v-flex>
