@@ -19,8 +19,16 @@
 </template>
 
 <script>
+import Constant from './constant'
+
 export default {
+  created () {
+    this.init()
+  },
   methods: {
+    init () {
+      this.$store.dispatch(Constant.SET_BANK_LIST)
+    },
     changeRoute (pathName) {
       this.$router.push({name: pathName})
     }

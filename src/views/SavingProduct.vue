@@ -1,7 +1,10 @@
 <template>
   <v-layout row ml-4 mr-4>
-    <v-flex md3 lg3 xl3>
-      <saving-product-option v-if="this.$vuetify.breakpoint.width > 960"></saving-product-option>
+    <v-flex md3 lg2 xl2>
+      <saving-product-option
+        v-if="this.$vuetify.breakpoint.width > 960"
+        @search="search"
+      ></saving-product-option>
     </v-flex>
     <v-flex xs12>
       <v-container>
@@ -39,7 +42,7 @@
             </div>
           </v-layout>
           <v-flex v-for="(value, index) in 10" :key="index">
-            <saving-product-card></saving-product-card>
+            <!-- <saving-product-card></saving-product-card> -->
           </v-flex>
         </v-layout>
       </v-container>
@@ -49,12 +52,18 @@
 
 <script>
 import SavingProductOption from '@/components/SavingProduct/SavingProductOption'
-import SavingProductCard from '@/components/SavingProduct/SavingProductCard'
+// import SavingProductCard from '@/components/SavingProduct/SavingProductCard'
 
 export default {
   components: {
     SavingProductOption,
-    SavingProductCard
-  }
+    // SavingProductCard
+  },
+  methods: {
+    search (params) {
+      // eslint-disable-next-line
+      console.log('params', params)
+    }
+  },
 }
 </script>

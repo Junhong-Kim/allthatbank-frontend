@@ -39,7 +39,7 @@
             </div>
           </v-layout>
           <v-flex v-for="(value, index) in 10" :key="index">
-            <deposit-product-card></deposit-product-card>
+            <!-- <deposit-product-card></deposit-product-card> -->
           </v-flex>
         </v-layout>
       </v-container>
@@ -49,12 +49,12 @@
 
 <script>
 import DepositProductOption from '@/components/DepositProduct/DepositProductOption'
-import DepositProductCard from '@/components/DepositProduct/DepositProductCard'
+// import DepositProductCard from '@/components/DepositProduct/DepositProductCard'
 
 export default {
   components: {
     DepositProductOption,
-    DepositProductCard
+    // DepositProductCard
   }
 }
 </script>
