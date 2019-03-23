@@ -41,11 +41,11 @@ export default {
   methods: {
     basicRate () {
       const key = 'basic_rate_max'
-      this.sortByKey(this.productList, key)
+      sortByKey(this.productList, key)
     },
     primeRate () {
       const key = 'prime_rate_max'
-      this.sortByKey(this.productList, key)
+      sortByKey(this.productList, key)
     }
   }
 }
