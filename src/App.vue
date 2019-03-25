@@ -3,10 +3,28 @@
     <v-toolbar color="primary" dark fixed app>
       <v-toolbar-title>올댓뱅크 BETA</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items v-if="this.$vuetify.breakpoint.width > 960">
         <v-btn flat @click="changeRoute('search')">상품검색</v-btn>
         <v-btn flat @click="changeRoute('saving')">적금상품</v-btn>
         <v-btn flat @click="changeRoute('deposit')">예금상품</v-btn>
+      </v-toolbar-items>
+      <v-toolbar-items v-else>
+        <v-btn icon @click="changeRoute('search')">
+          <v-icon>search</v-icon>
+        </v-btn>
+        <v-menu bottom left>
+          <v-btn slot="activator" icon>
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+          <v-list>
+            <v-list-tile @click="changeRoute('saving')">
+              <v-list-tile-title>적금상품</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile @click="changeRoute('deposit')">
+              <v-list-tile-title>예금상품</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>

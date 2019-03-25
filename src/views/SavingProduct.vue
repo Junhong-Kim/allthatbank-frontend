@@ -2,21 +2,21 @@
   <v-layout row ml-4 mr-4>
     <v-flex md3 lg2 xl2>
       <saving-product-option
-        v-if="this.$vuetify.breakpoint.width > 960"
+        v-show="this.$vuetify.breakpoint.width > 960"
         @search="search"
       ></saving-product-option>
     </v-flex>
     <v-flex xs12>
       <v-container>
         <v-layout column>
-          <v-layout row text-xs-center mr-2>
-            <div class="subheading pt-3 pb-3">
+          <v-layout row text-xs-center mb-2>
+            <div class="subheading mt-2 ml-1 pt-1">
               <span>검색결과 </span>
               <span class="primary--text font-weight-bold">{{ productList.length }}</span>
               <span>개</span>
             </div>
             <v-spacer></v-spacer>
-            <v-btn color="primary" v-if="this.$vuetify.breakpoint.width < 960">
+            <v-btn small color="primary" v-if="this.$vuetify.breakpoint.width < 960">
               상품옵션
               <v-icon>
                 filter_list
@@ -25,6 +25,7 @@
             <div class="text-xs-center">
               <v-menu offset-y>
                 <v-btn
+                  small
                   slot="activator"
                   color="primary"
                 >
