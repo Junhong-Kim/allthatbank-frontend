@@ -1,14 +1,14 @@
 <template>
   <v-container fill-height>
     <v-layout align-center row wrap text-xs-center>
-      <v-flex xs10 lg6 xl6 offset-xs1 offset-lg3 offset-xl3 style="margin-bottom: 100px;">
+      <v-flex xs10 lg6 xl6 offset-xs1 offset-lg3 offset-xl3 mb-5>
         <span class="headline">찾으시는 <b>금융상품</b>이 있으신가요?</span>
-          <v-flex offset-xs4>
-            <v-radio-group v-model="product" row>
-              <v-radio label="적금상품" value="saving"></v-radio>
-              <v-radio label="예금상품" value="deposit"></v-radio>
-            </v-radio-group>
-          </v-flex>
+        <v-flex>
+          <v-radio-group v-model="product" row class="justify-center">
+            <v-radio label="적금상품" value="saving"></v-radio>
+            <v-radio label="예금상품" value="deposit"></v-radio>
+          </v-radio-group>
+        </v-flex>
         <v-text-field
           solo
           hide-details
