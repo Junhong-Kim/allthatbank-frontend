@@ -1,8 +1,8 @@
 <template>
   <v-container fill-height>
     <v-layout align-center row wrap text-xs-center>
-      <v-flex xs10 lg6 xl6 offset-xs1 offset-lg3 offset-xl3 mb-5>
-        <span class="headline">찾으시는 <b>금융상품</b>이 있으신가요?</span>
+      <v-flex xs10 sm8 md8 lg6 xl6 offset-xs1 offset-sm2 offset-md2 offset-lg3 offset-xl3 mb-5>
+        <span :class="[this.$vuetify.breakpoint.width > 600 ? 'headline' : 'title']">찾으시는 <b>금융상품</b>이 있으신가요?</span>
         <v-flex>
           <v-radio-group v-model="product" row class="justify-center">
             <v-radio label="적금상품" value="saving"></v-radio>
