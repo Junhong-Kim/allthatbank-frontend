@@ -45,7 +45,8 @@
               </v-menu>
             </div>
           </v-layout>
-          <v-flex v-for="(data, index) in productList" :key="index">
+          <common-progress-circular v-if="!isDataLoad"></common-progress-circular>
+          <v-flex v-else v-for="(data, index) in productList" :key="index">
             <deposit-product-card :product="data"></deposit-product-card>
           </v-flex>
         </v-layout>
@@ -59,24 +60,30 @@ import API from '@/api'
 import { sortByKey } from '@/utils'
 import DepositProductOption from '@/components/DepositProduct/DepositProductOption'
 import DepositProductCard from '@/components/DepositProduct/DepositProductCard'
+import CommonProgressCircular from '@/components/Common/CommonProgressCircular'
 
 export default {
   components: {
     DepositProductOption,
-    DepositProductCard
+    DepositProductCard,
+    CommonProgressCircular,
   },
   data () {
     return {
-      productList: []
+      productList: [],
+      isDataLoad: true,
     }
   },
   methods: {
     search (params) {
+      this.isDataLoad = false
+      this.productList.length = 0
       this.$http.get(API.SEARCH_DEPOSIT_PRODUCT_BY_OPTION, {
         params
       }).then(res => {
         const data = res.data.data
         this.productList = data
+        this.isDataLoad = true
       })
     },
     basicRate () {

@@ -45,8 +45,9 @@
               </v-menu>
             </div>
           </v-layout>
-          <v-flex v-for="(data, index) in productList" :key="index">
-            <saving-product-card :product="data"></saving-product-card>
+          <common-progress-circular v-if="!isDataLoad"></common-progress-circular>
+          <v-flex v-else v-for="(data, index) in productList" :key="index">
+            <saving-product-card v-if="productList.length > 0" :product="data"></saving-product-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -59,24 +60,30 @@ import API from '@/api'
 import { sortByKey } from '@/utils'
 import SavingProductOption from '@/components/SavingProduct/SavingProductOption'
 import SavingProductCard from '@/components/SavingProduct/SavingProductCard'
+import CommonProgressCircular from '@/components/Common/CommonProgressCircular'
 
 export default {
   components: {
     SavingProductOption,
-    SavingProductCard
+    SavingProductCard,
+    CommonProgressCircular,
   },
   data () {
     return {
-      productList: []
+      productList: [],
+      isDataLoad: false,
     }
   },
   methods: {
     search (params) {
+      this.isDataLoad = false
+      this.productList.length = 0
       this.$http.get(API.SEARCH_SAVING_PRODUCT_BY_OPTION, {
         params
       }).then(res => {
         const data = res.data.data
         this.productList = data
+        this.isDataLoad = true
       })
     },
     basicRate () {

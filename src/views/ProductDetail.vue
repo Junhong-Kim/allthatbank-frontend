@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <v-card v-if="isDataLoad" class="pa-5">
+    <common-progress-circular v-if="!isDataLoad"></common-progress-circular>
+    <v-card v-else class="pa-5">
       <div class="ml-2">
         <div class="primary--text font-weight-bold">{{ product.bank_name }}</div>
         <div class="headline">{{ product.product_name }}</div>
@@ -112,8 +113,12 @@
 
 <script>
 import API from '@/api'
+import CommonProgressCircular from '@/components/Common/CommonProgressCircular'
 
 export default {
+  components: {
+    CommonProgressCircular,
+  },
   created () {
     this.bankId = this.$route.params.product.bank_id
     this.productId = this.$route.params.product.product_id
