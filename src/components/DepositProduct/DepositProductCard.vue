@@ -4,31 +4,23 @@
       <v-layout row wrap ml-3>
         <v-flex xs12 lg6>
           <v-layout column>
-            <v-flex>
+            <v-layout column>
               <span class="primary--text font-weight-bold">{{ product.bank_name }}</span>
-            </v-flex>
-            <v-flex>
-              <span class="headline">{{ product.product_name }}</span>
-            </v-flex>
-            <v-flex>
+              <span :class="[this.$vuetify.breakpoint.width > 600 ? 'title' : 'subheading', 'mt-1 mb-1']">{{ product.product_name }}</span>
               <span class="caption grey--text ">{{ product.join_way.split(',').join(' | ') }}</span>
-            </v-flex>
-            <v-flex>
-              <v-layout row mt-2>
-                <span class="mr-1"><b>기본금리</b></span>
-                <span>{{ product.basic_rate_min }}%</span>
-                <span>&nbsp;~&nbsp;</span>
-                <span>{{ product.basic_rate_max }}%</span>
-              </v-layout>
-            </v-flex>
-            <v-flex>
-              <v-layout row mt-2>
-                <span class="mr-1"><b>우대금리</b></span>
-                <span>{{ product.prime_rate_min }}%</span>
-                <span>&nbsp;~&nbsp;</span>
-                <span>{{ product.prime_rate_max }}%</span>
-              </v-layout>
-            </v-flex>
+            </v-layout>
+            <v-layout row mt-2>
+              <span class="mr-1"><b>기본금리</b></span>
+              <span>{{ product.basic_rate_min }}%</span>
+              <span>&nbsp;~&nbsp;</span>
+              <span>{{ product.basic_rate_max }}%</span>
+            </v-layout>
+            <v-layout row mt-2>
+              <span class="mr-1"><b>우대금리</b></span>
+              <span>{{ product.prime_rate_min }}%</span>
+              <span>&nbsp;~&nbsp;</span>
+              <span>{{ product.prime_rate_max }}%</span>
+            </v-layout>
           </v-layout>
         </v-flex>
         <v-flex v-if="this.$vuetify.breakpoint.width > 960">
